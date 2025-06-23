@@ -120,18 +120,6 @@ function getFollowUpQuestions(question: string): string[] {
   );
 }
 
-async function askOpenAI(question: string, ragFact: string | null): Promise<string> {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      if (ragFact) {
-        resolve(ragFact);
-      } else {
-        resolve("I'm not sure, but that's a great question! Try rephrasing or ask about another prom sustainability topic.");
-      }
-    }, 900);
-  });
-}
-
 export const AskTheEarthTutor: React.FC = () => {
   const { gameState } = useGame();
   const [messages, setMessages] = useState<Message[]>([
@@ -167,7 +155,7 @@ export const AskTheEarthTutor: React.FC = () => {
     setInput('');
     setLoading(true);
     const ragFact = retrieveFact(question);
-    const answer = await askOpenAI(question, ragFact);
+    const answer = ragFact || "I'm not sure, but that's a great question! Try rephrasing or ask about another prom sustainability topic.";
     const followUpQuestions = getFollowUpQuestions(question);
     setMessages(msgs => [...msgs, { sender: 'tutor', text: answer, followUpQuestions }]);
     setLoading(false);
