@@ -1,46 +1,156 @@
-# Getting Started with Create React App
+# 🌱 Green Prom Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An educational React.js game that teaches high school students about environmental impact through interactive prom planning decisions.
 
-## Available Scripts
+## 🎯 About
 
-In the project directory, you can run:
+Green Prom Planner is a single-page application (SPA) that guides players through planning their prom night while learning about the environmental consequences of their choices. Each decision affects:
 
-### `npm start`
+- **Carbon Footprint** - Environmental impact in kg of CO₂
+- **Popularity Score** - Social appeal of choices (1-10 scale)
+- **Budget** - Cost management ($500 starting budget)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Game Phases
+1. **Clothing Selection** - Choose between new, thrifted, or borrowed outfits
+2. **Transportation** - Select from limo, carpool, or public transit
+3. **Food & Venue** - Pick dining options from fancy restaurants to home cooking
+4. **Accessories** - Choose jewelry and accessories with sustainability in mind
 
-### `npm test`
+### Educational Elements
+- Real-time environmental impact feedback after each choice
+- Detailed explanations of carbon footprint calculations
+- Comparison with average student impact
+- Final results with sustainability grade and reflection
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Technical Features
+- React functional components with Hooks
+- TypeScript for type safety
+- Tailwind CSS for modern, responsive styling
+- Context API for state management
+- Modular, expandable architecture
 
-### `npm run build`
+## 🛠️ Setup & Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd green-prom-planner
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
+```bash
+npm install
+```
 
-### `npm run eject`
+3. Start the development server:
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Build for Production
+```bash
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🎮 How to Play
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. **Start the Game** - Click "Start Planning My Green Prom!" on the welcome screen
+2. **Make Choices** - For each phase, click on a choice to see its environmental impact
+3. **Learn** - Read the educational message about your choice's environmental consequences
+4. **Confirm** - Click "Confirm Choice" to proceed to the next phase
+5. **See Results** - View your final environmental impact grade and comparison with average students
 
-## Learn More
+## 🏗️ Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ChoiceCard.tsx   # Individual choice display
+│   └── GameStats.tsx    # Progress and stats display
+├── contexts/            # React context providers
+│   └── GameContext.tsx  # Game state management
+├── data/                # Game data and configuration
+│   └── gameData.ts      # Phases, choices, and constants
+├── scenes/              # Main game screens
+│   ├── WelcomeScene.tsx # Introduction screen
+│   ├── ChoiceScene.tsx  # Decision-making interface
+│   └── ResultsScene.tsx # Final results display
+├── types/               # TypeScript type definitions
+│   └── game.ts          # Game-related interfaces
+└── App.tsx              # Main application component
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎨 Styling
+
+The application uses Tailwind CSS for styling with:
+- Responsive design for mobile and desktop
+- Color-coded environmental impact indicators
+- Smooth transitions and hover effects
+- Modern gradient backgrounds
+- Accessible color contrast ratios
+
+## 🔧 Customization
+
+### Adding New Phases
+1. Add phase data to `src/data/gameData.ts`
+2. Update the `GAME_PHASES` array
+3. The game will automatically handle the new phase
+
+### Modifying Environmental Impact
+- Edit carbon footprint values in `gameData.ts`
+- Update educational messages for each choice
+- Adjust the average student carbon footprint constant
+
+### Styling Changes
+- Modify Tailwind classes in component files
+- Update color schemes in `tailwind.config.js`
+- Customize animations and transitions
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🌟 Future Enhancements
+
+- [ ] Add more game phases (photography, decorations, etc.)
+- [ ] Implement save/load game state
+- [ ] Add multiplayer comparison features
+- [ ] Integrate with real environmental data APIs
+- [ ] Add accessibility features (screen reader support)
+- [ ] Create mobile app version
+- [ ] Add teacher dashboard for classroom use
+
+---
+
+**Made with ❤️ for environmental education**
