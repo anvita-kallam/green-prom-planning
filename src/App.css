@@ -1,6 +1,6 @@
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  /* background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); */
 }
 
 /* Custom scrollbar */
@@ -19,4 +19,12 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+.bg-trees {
+  background-image: url('trees-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }

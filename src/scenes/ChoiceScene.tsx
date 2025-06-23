@@ -35,7 +35,7 @@ export const ChoiceScene: React.FC = () => {
 
   if (showFeedback && selectedChoice) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-4">
+      <div className="min-h-screen bg-trees p-4">
         <div className="max-w-4xl mx-auto">
           <GameStats />
           
@@ -100,7 +100,7 @@ export const ChoiceScene: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-4">
+    <div className="min-h-screen bg-trees p-4">
       <div className="max-w-6xl mx-auto">
         <GameStats />
         

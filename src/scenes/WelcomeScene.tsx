@@ -10,12 +10,12 @@ export const WelcomeScene: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-2xl mx-auto text-center">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
           <div className="mb-8">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-              🌱 Green Prom Planner
+            🌱 Prompact: A Climate Decision Game
             </h1>
             <p className="text-xl text-gray-600 mb-6">
               Plan your perfect prom while learning about environmental impact!

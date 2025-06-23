@@ -3,6 +3,7 @@ import { GameProvider, useGame } from './contexts/GameContext';
 import { WelcomeScene } from './scenes/WelcomeScene';
 import { ChoiceScene } from './scenes/ChoiceScene';
 import { ResultsScene } from './scenes/ResultsScene';
+import AskTheEarthTutor from './components/AskTheEarthTutor';
 import './App.css';
 
 function GameApp() {
@@ -24,11 +25,14 @@ function GameApp() {
 
 function App() {
   return (
-    <GameProvider>
-      <div className="App">
-        <GameApp />
-      </div>
-    </GameProvider>
+    <div className="bg-trees min-h-screen">
+      <GameProvider>
+        <div className="App">
+          <GameApp />
+          <AskTheEarthTutor />
+        </div>
+      </GameProvider>
+    </div>
   );
 }
 

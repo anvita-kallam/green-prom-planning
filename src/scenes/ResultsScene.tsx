@@ -17,7 +17,7 @@ export const ResultsScene: React.FC = () => {
   const carbonRating = getCarbonRating(result.totalCarbonFootprint);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-4">
+    <div className="min-h-screen bg-trees p-4">
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
