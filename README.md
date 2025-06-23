@@ -1,4 +1,4 @@
-# 🌱 Green Prom Planner
+# 🌱 Prompact: A Climate Decision Game
 
 An educational React.js game that teaches high school students about environmental impact through interactive prom planning decisions.
 
@@ -10,7 +10,7 @@ Green Prom Planner is a single-page application (SPA) that guides players throug
 - **Popularity Score** - Social appeal of choices (1-10 scale)
 - **Budget** - Cost management ($500 starting budget)
 
-[🌿 Play Green Prom Planner](https://green-prom-planner-jfrn3ntuf-anvita-kallams-projects.vercel.app/)
+[🌿 Play Prompact]([https://green-prom-planner-jfrn3ntuf-anvita-kallams-projects.vercel.app/](https://green-prom-planning.vercel.app/))
 
 
 ## 🚀 Features
