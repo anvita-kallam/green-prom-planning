@@ -10,6 +10,9 @@ Green Prom Planner is a single-page application (SPA) that guides players throug
 - **Popularity Score** - Social appeal of choices (1-10 scale)
 - **Budget** - Cost management ($500 starting budget)
 
+[🌿 Play Green Prom Planner](https://green-prom-planner-jfrn3ntuf-anvita-kallams-projects.vercel.app/)
+
+
 ## 🚀 Features
 
 ### Game Phases
