@@ -4,7 +4,7 @@ An educational React.js game that teaches high school students about environment
 
 ## 🎯 About
 
-Green Prom Planner is a single-page application (SPA) that guides players through planning their prom night while learning about the environmental consequences of their choices. Each decision affects:
+Prompact is a single-page application (SPA) that guides players through planning their prom night while learning about the environmental consequences of their choices. Each decision affects:
 
 - **Carbon Footprint** - Environmental impact in kg of CO₂
 - **Popularity Score** - Social appeal of choices (1-10 scale)
