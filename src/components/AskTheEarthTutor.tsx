@@ -59,7 +59,7 @@ const FOLLOW_UP_QUESTIONS = {
     'Are there eco-friendly options for prom party favors?'
   ],
   'energy': [
-    'How can I make prom decorations eco-friendly?',
+    'How can I make prom decorations more eco-friendly?',
     'What are some alternatives to balloons for prom decor?',
     'How can I make prom tickets more sustainable?'
   ],
