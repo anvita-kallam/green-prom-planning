@@ -5,7 +5,7 @@ import { GameStats } from '../components/GameStats';
 import { Choice } from '../types/game';
 
 export const ChoiceScene: React.FC = () => {
-  const { gameState, makeChoice, getCurrentPhase } = useGame();
+  const { makeChoice, getCurrentPhase } = useGame();
   const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
@@ -37,7 +37,7 @@ export const ChoiceScene: React.FC = () => {
     return (
       <div className="min-h-screen bg-trees p-4">
         <div className="max-w-4xl mx-auto">
-          <GameStats />
+          <GameStats showUndo={false} />
           
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="text-center mb-8">
@@ -102,7 +102,7 @@ export const ChoiceScene: React.FC = () => {
   return (
     <div className="min-h-screen bg-trees p-4">
       <div className="max-w-6xl mx-auto">
-        <GameStats />
+        <GameStats showUndo={true} />
         
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">

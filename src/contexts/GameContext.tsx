@@ -5,31 +5,40 @@ import { GAME_PHASES, INITIAL_BUDGET, AVERAGE_STUDENT_CARBON_FOOTPRINT } from '.
 interface GameContextType {
   gameState: GameState;
   makeChoice: (phaseId: string, choice: Choice) => void;
+  undoChoice: () => void;
   resetGame: () => void;
   startGame: () => void;
   getCurrentPhase: () => typeof GAME_PHASES[0] | null;
   getGameResult: () => GameResult;
   isGameComplete: () => boolean;
+  canUndo: () => boolean;
 }
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
 type GameAction = 
   | { type: 'MAKE_CHOICE'; payload: { phaseId: string; choice: Choice } }
+  | { type: 'UNDO_CHOICE' }
   | { type: 'RESET_GAME' }
   | { type: 'START_GAME' };
 
-const initialState: GameState = {
+// Extended state to include history
+interface ExtendedGameState extends GameState {
+  history: GameState[];
+}
+
+const initialState: ExtendedGameState = {
   currentPhase: GAME_PHASES[0].id,
   carbonFootprint: 0,
   popularityScore: 0,
   budgetRemaining: INITIAL_BUDGET,
   choices: {},
   completedPhases: [],
-  hasStarted: false
+  hasStarted: false,
+  history: []
 };
 
-function gameReducer(state: GameState, action: GameAction): GameState {
+function gameReducer(state: ExtendedGameState, action: GameAction): ExtendedGameState {
   switch (action.type) {
     case 'MAKE_CHOICE': {
       const { phaseId, choice } = action.payload;
@@ -43,14 +52,40 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       const currentPhaseIndex = GAME_PHASES.findIndex(phase => phase.id === phaseId);
       const nextPhase = GAME_PHASES[currentPhaseIndex + 1];
       
-      return {
-        ...state,
+      const newState: GameState = {
         currentPhase: nextPhase ? nextPhase.id : 'results',
         carbonFootprint: newCarbonFootprint,
         popularityScore: newPopularityScore,
         budgetRemaining: newBudgetRemaining,
         choices: newChoices,
-        completedPhases: newCompletedPhases
+        completedPhases: newCompletedPhases,
+        hasStarted: state.hasStarted
+      };
+      
+      return {
+        ...newState,
+        history: [...state.history, {
+          currentPhase: state.currentPhase,
+          carbonFootprint: state.carbonFootprint,
+          popularityScore: state.popularityScore,
+          budgetRemaining: state.budgetRemaining,
+          choices: state.choices,
+          completedPhases: state.completedPhases,
+          hasStarted: state.hasStarted
+        }]
+      };
+    }
+    case 'UNDO_CHOICE': {
+      if (state.history.length === 0) {
+        return state;
+      }
+      
+      const previousState = state.history[state.history.length - 1];
+      const newHistory = state.history.slice(0, -1);
+      
+      return {
+        ...previousState,
+        history: newHistory
       };
     }
     case 'START_GAME':
@@ -78,6 +113,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'MAKE_CHOICE', payload: { phaseId, choice } });
   };
 
+  const undoChoice = () => {
+    dispatch({ type: 'UNDO_CHOICE' });
+  };
+
   const resetGame = () => {
     dispatch({ type: 'RESET_GAME' });
   };
@@ -92,6 +131,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const isGameComplete = () => {
     return gameState.completedPhases.length === GAME_PHASES.length;
+  };
+
+  const canUndo = () => {
+    return gameState.history.length > 0 && gameState.completedPhases.length > 0;
   };
 
   const getGameResult = (): GameResult => {
@@ -122,11 +165,13 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const value: GameContextType = {
     gameState,
     makeChoice,
+    undoChoice,
     resetGame,
     startGame,
     getCurrentPhase,
     getGameResult,
-    isGameComplete
+    isGameComplete,
+    canUndo
   };
 
   return (

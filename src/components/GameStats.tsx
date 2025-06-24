@@ -1,20 +1,12 @@
 import React from 'react';
 import { useGame } from '../contexts/GameContext';
 
-export const GameStats: React.FC = () => {
-  const { gameState } = useGame();
+interface GameStatsProps {
+  showUndo?: boolean;
+}
 
-  const getCarbonColor = (carbonFootprint: number) => {
-    if (carbonFootprint <= 20) return 'text-green-600';
-    if (carbonFootprint <= 50) return 'text-yellow-600';
-    return 'text-red-600';
-  };
-
-  const getBudgetColor = (budgetRemaining: number) => {
-    if (budgetRemaining >= 200) return 'text-green-600';
-    if (budgetRemaining >= 100) return 'text-yellow-600';
-    return 'text-red-600';
-  };
+export const GameStats: React.FC<GameStatsProps> = ({ showUndo = true }) => {
+  const { gameState, undoChoice, canUndo } = useGame();
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -59,6 +51,21 @@ export const GameStats: React.FC = () => {
             style={{ width: `${(gameState.completedPhases.length / 4) * 100}%` }}
           ></div>
         </div>
+        {/* Undo Button */}
+        {showUndo && canUndo() && (
+          <div className="mt-4 flex justify-center">
+            <button
+              onClick={undoChoice}
+              className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors text-sm font-medium"
+              title="Undo your last choice"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+              </svg>
+              Undo Last Choice
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
