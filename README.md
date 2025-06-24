@@ -37,7 +37,7 @@ It also features a GPT-powered **Ask the Earth** tutor that uses a Retrieval-Aug
 - Tailwind CSS for modern, responsive styling
 - Context API for state management
 - GPT-4 compatible “Ask the Earth” component with:
-  - Embedded climate facts (`climate_facts_prom.json`)
+  - Embedded climate facts (`climateFacts.json`)
   - RAG-based fact injection into system prompts
   - Mock GPT response handler for local dev/testing
 - Modular, expandable architecture
