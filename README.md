@@ -6,63 +6,43 @@ An educational React.js game that teaches high school students about environment
 
 Prompact is a single-page application (SPA) that guides players through planning their prom night while learning about the environmental consequences of their choices. Each decision affects:
 
-- **Carbon Footprint** - Environmental impact in kg of CO₂
-- **Popularity Score** - Social appeal of choices (1-10 scale)
-- **Budget** - Cost management ($500 starting budget)
+- **Carbon Footprint** – Environmental impact in kg of CO₂
+- **Popularity Score** – Social appeal of choices (1–10 scale)
+- **Budget** – Cost management ($500 starting budget)
+
+It also features a GPT-powered **Ask the Earth** tutor that uses a Retrieval-Augmented Generation (RAG) system to answer player questions with real climate facts relevant to prom decisions.
 
 [🌿 Play Prompact](https://green-prom-planning.vercel.app/)
 
+---
 
 ## 🚀 Features
 
 ### Game Phases
-1. **Clothing Selection** - Choose between new, thrifted, or borrowed outfits
-2. **Transportation** - Select from limo, carpool, or public transit
-3. **Food & Venue** - Pick dining options from fancy restaurants to home cooking
-4. **Accessories** - Choose jewelry and accessories with sustainability in mind
+1. **Clothing Selection** – Choose between new, thrifted, or borrowed outfits
+2. **Transportation** – Select from limo, carpool, or public transit
+3. **Food & Venue** – Pick dining options from fancy restaurants to home cooking
+4. **Accessories** – Choose jewelry and accessories with sustainability in mind
 
 ### Educational Elements
 - Real-time environmental impact feedback after each choice
 - Detailed explanations of carbon footprint calculations
 - Comparison with average student impact
 - Final results with sustainability grade and reflection
+- **Ask the Earth GPT Tutor** – In-game AI assistant that answers climate-related questions using a custom RAG pipeline
 
 ### Technical Features
 - React functional components with Hooks
 - TypeScript for type safety
 - Tailwind CSS for modern, responsive styling
 - Context API for state management
+- GPT-4 compatible “Ask the Earth” component with:
+  - Embedded climate facts (`climate_facts_prom.json`)
+  - RAG-based fact injection into system prompts
+  - Mock GPT response handler for local dev/testing
 - Modular, expandable architecture
 
-## 🛠️ Setup & Installation
-
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Installation
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd green-prom-planner
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm start
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-### Build for Production
-```bash
-npm run build
-```
+---
 
 ## 🎮 How to Play
 
