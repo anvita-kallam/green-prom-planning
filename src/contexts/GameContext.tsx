@@ -147,7 +147,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     } else if (percentageReduction >= 25) {
       reflectionMessage = `Great job! You made thoughtful decisions and reduced your prom's impact by ${Math.round(percentageReduction)}% compared to the average student. Remember that every choice matters!`;
     } else if (percentageReduction >= 0) {
-      reflectionMessage = `Good effort! You reduced your prom's impact by ${Math.round(percentageReduction)}% compared to the average student. There's always room to improve!`;
+      reflectionMessage = `Good effort! You reduced your prom's impact by ${Math.round(percentageReduction)}% compared to the average student. There is always room to improve!`;
     } else {
       reflectionMessage = `Your prom choices had a higher environmental impact than average. Consider more sustainable options next time, since every small change helps!`;
     }
