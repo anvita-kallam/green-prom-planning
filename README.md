@@ -1,6 +1,6 @@
 # 🌱 Prompact: A Climate Decision Game
 
-An educational React.js game that teaches high school students about environmental impact through interactive prom planning decisions.
+An educational React.js game that teaches elementary through high school students about environmental impact through interactive prom planning decisions.
 
 ## 🎯 About
 
